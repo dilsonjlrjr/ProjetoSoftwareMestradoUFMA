@@ -1,0 +1,8 @@
+
+{% for pessoa in listPessoas %}
+    <tr>
+        <td>{{ pessoa.id|e }}</td>
+        <td>{{ pessoa.nome|e }}</td>
+        <td>{{ pessoa.profissao|e }}</td>
+    </tr>
+{% endfor %}

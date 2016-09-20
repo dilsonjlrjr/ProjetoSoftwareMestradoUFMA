@@ -1,0 +1,8 @@
+
+{% for project in listProject %}
+    <tr>
+        <td>{{ project.id|e }}</td>
+        <td>{{ project.nome|e }}</td>
+        <td>{{ project.atividade|length }}</td>
+    </tr>
+{% endfor %}

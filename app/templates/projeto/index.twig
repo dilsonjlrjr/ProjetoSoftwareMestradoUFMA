@@ -1,0 +1,33 @@
+{% extends "layout.twig" %}
+{% block content %}
+<h1>Cadastro de Projeto</h1>
+
+<form id="frm-projeto" name="frm-projeto">
+    <div class="form-group">
+        <label for="projeto-id">ID</label>
+        <input type="text" class="form-control" id="projeto-id" disabled>
+    </div>
+    <div class="form-group">
+        <label for="projeto-nome">Nome</label>
+        <input type="text" class="form-control" id="projeto-nome" placeholder="Nome...">
+    </div>
+    <button type="button" id="btn-submit-save" class="btn btn-default">Salvar</button>
+</form>
+
+<h2>Registros</h2>
+<table class="table table-bordered" id="table-projeto">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Qtd Tarefa</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ base_url() }}/js/negocio/projeto.js"></script>
+{% endblock %}
