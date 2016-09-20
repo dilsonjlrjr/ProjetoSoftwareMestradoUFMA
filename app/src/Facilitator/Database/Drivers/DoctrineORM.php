@@ -21,6 +21,7 @@ class DoctrineORM
         $server   = $settings['connection']['server'];
         $port     = $settings['connection']['port'];
         $driver   = $settings['connection']['driver'];
+        $charset  = $settings['connection']['charset'];
 
         $dbParams = [
             'driver'   => $driver,
@@ -29,6 +30,7 @@ class DoctrineORM
             'dbname'   => $dbName,
             'host' => $server,
             'port' => $port,
+            'charset' => $charset,
         ];
 
         // -----------------------------------------------------------------------------

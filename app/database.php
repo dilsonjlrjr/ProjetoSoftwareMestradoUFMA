@@ -26,6 +26,7 @@ return [
             'dbname' => 'projetosoftware',
             'port' => '3306',
             'driver' => 'pdo_mysql',
+            'charset' => 'utf8',
         ],
         'configuration' => [
             'ProxyDir' =>  __DIR__ . '/../cache/DoctrineORM/Proxy/',

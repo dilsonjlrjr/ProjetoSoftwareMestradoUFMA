@@ -29,4 +29,7 @@ $app->group('/projeto', function () {
 $app->group('/atividade', function () {
     $this->get('[/]', 'App\Controller\AtividadeController:indexAction')
         ->setName('homeatividade');
+
+    $this->post('/listtable', 'App\Controller\AtividadeController:listTableProjetoAction')
+        ->setName('listtableatividade');
 });
