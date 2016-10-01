@@ -3,6 +3,7 @@
 namespace App\Mapper;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
 /**
  * Atividade
@@ -70,11 +71,18 @@ class Atividade
     private $projeto;
 
     /**
+     * @var PersistentCollection
+     *
+     * @ORM\OneToMany(targetEntity="DetalhamentoAtividade", mappedBy="atividade")
+     */
+    private $detalhamentoAtividade;
+
+    /**
      * Atividade constructor.
      */
     public function __construct()
     {
-
+        $this->detalhamentoAtividade = new PersistentCollection();
     }
 
     /**
@@ -187,6 +195,23 @@ class Atividade
     public function setProjeto(Projeto $projeto)
     {
         $this->projeto = $projeto;
+    }
+
+    /**
+     * @return PersistentCollection
+     */
+    public function getDetalhamentoAtividade(): PersistentCollection
+    {
+        return $this->detalhamentoAtividade;
+    }
+
+    /**
+     * @param DetalhamentoAtividade $detalhamentoAtividade
+     */
+    public function setDetalhamentoAtividade(DetalhamentoAtividade $detalhamentoAtividade)
+    {
+        $detalhamentoAtividade->setAtividade($this);
+        $this->detalhamentoAtividade->add($detalhamentoAtividade);
     }
 
 }

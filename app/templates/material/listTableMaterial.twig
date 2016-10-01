@@ -1,0 +1,8 @@
+
+{% for material in listMaterial %}
+    <tr>
+        <td>{{ material.id|e }}</td>
+        <td>{{ material.descricao|e }}</td>
+        <td>{{ material.quantidade|e }}</td>
+    </tr>
+{% endfor %}

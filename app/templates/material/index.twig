@@ -1,0 +1,37 @@
+{% extends "layout.twig" %}
+{% block content %}
+<h1>Cadastro de Material</h1>
+
+<form id="frm-material" name="frm-material">
+    <div class="form-group">
+        <label for="material-id">ID</label>
+        <input type="text" class="form-control" id="material-id" disabled>
+    </div>
+    <div class="form-group">
+        <label for="material-nome">Nome</label>
+        <input type="text" class="form-control" id="material-nome" placeholder="Nome...">
+    </div>
+    <div class="form-group">
+        <label for="material-quantidade">Quantidade</label>
+        <input type="number" class="form-control" id="material-quantidade">
+    </div>
+    <button type="button" id="btn-submit-save" class="btn btn-default">Salvar</button>
+</form>
+
+<h2>Registros</h2>
+<table class="table table-bordered" id="table-material">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Quantidade</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ base_url() }}/js/negocio/material.js"></script>
+{% endblock %}
