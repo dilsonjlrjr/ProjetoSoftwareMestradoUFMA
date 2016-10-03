@@ -30,13 +30,6 @@ class Atividade
     private $nome;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="custo", type="float", precision=10, scale=0, nullable=true)
-     */
-    private $custo;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dataconclusao", type="datetime", nullable=true)
@@ -115,22 +108,6 @@ class Atividade
     public function setNome(string $nome)
     {
         $this->nome = $nome;
-    }
-
-    /**
-     * @return float
-     */
-    public function getCusto(): float
-    {
-        return $this->custo;
-    }
-
-    /**
-     * @param float $custo
-     */
-    public function setCusto(float $custo)
-    {
-        $this->custo = $custo;
     }
 
     /**

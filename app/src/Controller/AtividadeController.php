@@ -1,15 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dilsonrabelo
- * Date: 19/09/16
- * Time: 16:16
- */
 
 namespace App\Controller;
 
 
 use App\Mapper\Atividade;
+use App\Mapper\Material;
 use App\Mapper\Pessoa;
 use App\Mapper\Projeto;
 use Interop\Container\ContainerInterface;
@@ -41,6 +36,14 @@ class AtividadeController extends AbstractController
         $listAtividade = $this->_dm->getRepository(Atividade::class)->findBy([ 'projeto' => $request->getParam('idproject') ]);
 
         return $this->view->render($response, 'atividades/listTableAtividade.twig', [ 'listAtividade' => $listAtividade ]);
+
+    }
+
+    public function listMaterialAction(ServerRequestInterface $request, ResponseInterface $response) {
+
+        $listMaterial = $this->_dm->getRepository(Material::class)->getMaterialInStock();
+
+        return $this->view->render($response, 'atividades/listMaterial.twig', [ 'listMaterial' => $listMaterial ]);
 
     }
 
