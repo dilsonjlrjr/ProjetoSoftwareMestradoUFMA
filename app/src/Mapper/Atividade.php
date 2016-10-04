@@ -2,6 +2,7 @@
 
 namespace App\Mapper;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
 
@@ -9,7 +10,7 @@ use Doctrine\ORM\PersistentCollection;
  * Atividade
  *
  * @ORM\Table(name="Atividade", indexes={@ORM\Index(name="fk_Atividade_Projeto_idx", columns={"projeto_FK_idProjeto"}), @ORM\Index(name="fk_Atividade_Ator1_idx", columns={"ator_FK_idAtor"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Mapper\Repository\AtividadeRepository")
  */
 class Atividade
 {
@@ -66,7 +67,7 @@ class Atividade
     /**
      * @var PersistentCollection
      *
-     * @ORM\OneToMany(targetEntity="DetalhamentoAtividade", mappedBy="atividade")
+     * @ORM\OneToMany(targetEntity="DetalhamentoAtividade", mappedBy="atividade", cascade={"persist", "remove"})
      */
     private $detalhamentoAtividade;
 
@@ -75,7 +76,7 @@ class Atividade
      */
     public function __construct()
     {
-        $this->detalhamentoAtividade = new PersistentCollection();
+        $this->detalhamentoAtividade = new ArrayCollection();
     }
 
     /**
@@ -177,7 +178,7 @@ class Atividade
     /**
      * @return PersistentCollection
      */
-    public function getDetalhamentoAtividade(): PersistentCollection
+    public function getDetalhamentoAtividade()
     {
         return $this->detalhamentoAtividade;
     }
