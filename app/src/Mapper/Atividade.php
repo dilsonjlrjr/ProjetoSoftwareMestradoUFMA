@@ -3,6 +3,7 @@
 namespace App\Mapper;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 
 /**
  * Atividade
@@ -27,13 +28,6 @@ class Atividade
      * @ORM\Column(name="nome", type="string", length=45, nullable=false)
      */
     private $nome;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="custo", type="float", precision=10, scale=0, nullable=true)
-     */
-    private $custo;
 
     /**
      * @var \DateTime
@@ -70,11 +64,18 @@ class Atividade
     private $projeto;
 
     /**
+     * @var PersistentCollection
+     *
+     * @ORM\OneToMany(targetEntity="DetalhamentoAtividade", mappedBy="atividade")
+     */
+    private $detalhamentoAtividade;
+
+    /**
      * Atividade constructor.
      */
     public function __construct()
     {
-
+        $this->detalhamentoAtividade = new PersistentCollection();
     }
 
     /**
@@ -107,22 +108,6 @@ class Atividade
     public function setNome(string $nome)
     {
         $this->nome = $nome;
-    }
-
-    /**
-     * @return float
-     */
-    public function getCusto(): float
-    {
-        return $this->custo;
-    }
-
-    /**
-     * @param float $custo
-     */
-    public function setCusto(float $custo)
-    {
-        $this->custo = $custo;
     }
 
     /**
@@ -187,6 +172,23 @@ class Atividade
     public function setProjeto(Projeto $projeto)
     {
         $this->projeto = $projeto;
+    }
+
+    /**
+     * @return PersistentCollection
+     */
+    public function getDetalhamentoAtividade(): PersistentCollection
+    {
+        return $this->detalhamentoAtividade;
+    }
+
+    /**
+     * @param DetalhamentoAtividade $detalhamentoAtividade
+     */
+    public function setDetalhamentoAtividade(DetalhamentoAtividade $detalhamentoAtividade)
+    {
+        $detalhamentoAtividade->setAtividade($this);
+        $this->detalhamentoAtividade->add($detalhamentoAtividade);
     }
 
 }

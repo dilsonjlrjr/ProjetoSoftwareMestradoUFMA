@@ -1,0 +1,4 @@
+<option value="-" selected>-</option>
+{% for material in listMaterial %}
+    <option data-quantidade="{{ material.quantidade }}" value="{{ material.id }}">{{ material.descricao }}</option>
+{% endfor %}

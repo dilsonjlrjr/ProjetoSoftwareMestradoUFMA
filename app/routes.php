@@ -32,4 +32,18 @@ $app->group('/atividade', function () {
 
     $this->post('/listtable', 'App\Controller\AtividadeController:listTableProjetoAction')
         ->setName('listtableatividade');
+
+    $this->get('/listmaterial', 'App\Controller\AtividadeController:listMaterialAction')
+        ->setName('listmaterial');
+});
+
+$app->group('/material', function () {
+    $this->get('[/]', 'App\Controller\MaterialController:indexAction')
+        ->setName('homematerial');
+
+    $this->post('/save', 'App\Controller\MaterialController:saveAction')
+        ->setName('saveprojeto');
+
+    $this->get('/listtable', 'App\Controller\MaterialController:listTableMaterialAction')
+        ->setName('listtablematerial');
 });

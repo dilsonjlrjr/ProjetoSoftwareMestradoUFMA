@@ -3,42 +3,81 @@
 <h1>Cadastro de Atividade</h1>
 
 <form id="frm-atividade" name="frm-atividade">
-    <div class="form-group">
-        <label for="projeto-atividade">Projeto</label>
-        <select class="form-control" id="select-project">
-            <option value="-">-</option>
-            {% for project in listProjetos %}
-            <option value="{{ project.id }}">{{ project.nome }}</option>
-            {% endfor %}
-        </select>
+    <div class="row">
+        <div class="col-lg-6">
+            <fieldset>
+                <legend>Projeto</legend>
+
+                <div class="form-group">
+                    <label for="atividade-id">ID</label>
+                    <input type="text" class="form-control" id="projeto-id" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="projeto-atividade">Projeto</label>
+                    <select class="form-control" id="select-project">
+                        <option value="-">-</option>
+                        {% for project in listProjetos %}
+                            <option value="{{ project.id }}">{{ project.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="projeto-atividade">Pessoa</label>
+                    <select class="form-control" id="select-project">
+                        {% for pessoa in listPessoa %}
+                            <option value="{{ pessoa.id }}">{{ pessoa.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="atividade-nome">Nome da Atividade</label>
+                    <input type="text" class="form-control" id="projeto-nome" placeholder="Nome...">
+                </div>
+                <div class="form-group">
+                    <label for="atividade-dataconclusao">Data Conclusão</label>
+                    <input type="date" class="form-control" id="projeto-dataconclusao">
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-lg-6">
+            <fieldset>
+                <legend>Material</legend>
+
+                <div class="form-group">
+                    <label for="detalhamentoatividade-material">Material</label>
+                    <select class="form-control" id="detalhamentoatividade-material">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="detalhamentoatividade-quantidade">Quantidade</label>
+                    <input type="number" class="form-control" id="detalhamentoatividade-quantidade" min="1" max="5">
+                </div>
+
+                <button type="button" id="btn-add-item" class="btn btn-default">Adicionar Material</button>
+
+                <br /><br />
+
+                <table class="table table-bordered" id="table-material">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Material</th>
+                        <th>Quantidade</th>
+                        <th>id-material</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="projeto-atividade">Pessoa</label>
-        <select class="form-control" id="select-project">
-            {% for pessoa in listPessoa %}
-                <option value="{{ pessoa.id }}">{{ pessoa.nome }}</option>
-            {% endfor %}
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="atividade-id">ID</label>
-        <input type="text" class="form-control" id="projeto-id" disabled>
-    </div>
-    <div class="form-group">
-        <label for="atividade-nome">Nome</label>
-        <input type="text" class="form-control" id="projeto-nome" placeholder="Nome...">
-    </div>
-    <div class="form-group">
-        <label for="atividade-custo">Custo</label>
-        <input type="text" class="form-control" id="projeto-custo" placeholder="Custo...">
-    </div>
-    <div class="form-group">
-        <label for="atividade-dataconclusao">Data Conclusão</label>
-        <input type="text" class="form-control" id="projeto-dataconclusao" placeholder="DD/MM/YYYY">
-    </div>
-    <button type="button" id="btn-submit-save" class="btn btn-default">Salvar</button>
+    <button type="button" id="btn-submit-save" class="btn btn-default pull-right">Salvar Atividade</button>
 </form>
 
 <h2>Registros</h2>
@@ -48,7 +87,6 @@
             <th>#</th>
             <th>Nome</th>
             <th>Pessoa</th>
-            <th>Custo</th>
             <th>Data Conclusão</th>
         </tr>
     </thead>

@@ -8,7 +8,7 @@ use Tests\BaseUnitTests;
  * Date: 28/08/16
  * Time: 19:32
  */
-class ExampleTest extends BaseUnitTests
+class InfraTest extends BaseUnitTests
 {
     /**
      * @var \RKA\Session
@@ -38,18 +38,5 @@ class ExampleTest extends BaseUnitTests
         $this->_dm->getConnection()->connect();
         $this->assertTrue($this->_dm->isOpen());
         $this->_dm->getConnection()->close();
-    }
-
-    /**
-     * @test
-     */
-    public function shouldGetRootPath() {
-
-        $response = $this->runRoute('GET', '/');
-
-        $this->assertEquals(200, $response->getStatusCode());
-        $this->assertContains('Slim Framework 3', (string)$response->getBody());
-        $this->assertNotContains('Hello', (string)$response->getBody());
-
     }
 }
