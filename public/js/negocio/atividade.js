@@ -25,7 +25,7 @@ $(document).ready(function () {
         var quantidadeTotalMaterial = select.attr('data-quantidade');
         var quantidadeMaterial = $("#detalhamentoatividade-quantidade").val();
 
-        if (quantidadeTotalMaterial <= 0) {
+        if ((quantidadeTotalMaterial <= 0) || ((quantidadeTotalMaterial - quantidadeMaterial) <=0)) {
             swal("Oops...", "Não existe quantidade disponível de materia!", "error");
             return false;
         }
