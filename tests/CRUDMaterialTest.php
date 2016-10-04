@@ -63,6 +63,22 @@ class CRUDMaterialTest extends BaseUnitTests
 
     }
 
+    /**
+     * @param Material $material
+     * @test
+     * @dataProvider dataFactory
+     * @expectedException \Exception
+     * @expectedExceptionMessage A quantidade não pode ser negativa.
+     */
+    public function shouldCreateMaterialGenerateExceptionNegativeStock(Material $material) {
+
+        $material->setQuantidade(-1);
+        $this->em->getRepository(Material::class)->saveOrUpdate($material);
+        $this->assertTrue(is_numeric($material->getId()));
+
+    }
+
+
     public function dataFactory() {
         $material = new Material();
         $material->setDescricao('Pudim');

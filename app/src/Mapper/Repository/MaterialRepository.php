@@ -2,6 +2,7 @@
 
 namespace App\Mapper\Repository;
 
+use App\Mapper\Material;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -10,8 +11,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class MaterialRepository extends EntityRepository implements PersistInterface
 {
+    /**
+     * @param Material $object
+     * @throws \Exception
+     */
     public function saveOrUpdate($object)
     {
+        if ($object->getQuantidade() < 0) {
+            throw new \Exception('A quantidade não pode ser negativa.');
+        }
+
         $this->_em->persist($object);
         $this->_em->flush();
     }
