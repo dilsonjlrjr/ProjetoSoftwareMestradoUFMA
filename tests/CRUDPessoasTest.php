@@ -23,6 +23,7 @@ class CRUDPessoasTest extends BaseUnitTests
      * @param Pessoa $pessoa
      * @test
      * @dataProvider dataFactory
+     * @author Dilson José Lins Rabelo Junior
      */
     public function shouldCreatePessoa(Pessoa $pessoa) {
 
@@ -35,6 +36,7 @@ class CRUDPessoasTest extends BaseUnitTests
      * @param Pessoa $pessoa
      * @test
      * @dataProvider dataFactory
+     * @author Dilson José Lins Rabelo Junior
      */
     public function shouldSearchPessoa(Pessoa $pessoa) {
 
@@ -50,6 +52,7 @@ class CRUDPessoasTest extends BaseUnitTests
      * @param Pessoa $pessoa
      * @test
      * @dataProvider dataFactory
+     * @author Dilson José Lins Rabelo Junior
      */
     public function shouldDestroyPessoa(Pessoa $pessoa) {
 

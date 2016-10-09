@@ -32,6 +32,7 @@ class CRUDAtividadeTest extends BaseUnitTests  {
      * @param Atividade $atividade
      * @test
      * @dataProvider dataFactory
+     * @author Higo Lobato Sampaio
      */
     public function shouldCreateAtividade(Atividade $atividade) {
 
@@ -76,6 +77,7 @@ class CRUDAtividadeTest extends BaseUnitTests  {
      * @param Atividade $atividade
      * @test
      * @dataProvider dataFactory
+     * @author Higo Lobato Sampaio
      */
     public function shouldSearchAtividade(Atividade $atividade) {
 
@@ -91,6 +93,7 @@ class CRUDAtividadeTest extends BaseUnitTests  {
      * @param Atividade $atividade
      * @test
      * @dataProvider dataFactory
+     * @author Higo Lobato Sampaio
      */
     public function shouldDestroyAtividade(Atividade $atividade) {
 

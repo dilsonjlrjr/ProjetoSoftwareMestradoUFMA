@@ -23,6 +23,7 @@ class CRUDMaterialTest extends BaseUnitTests
      * @param Material $material
      * @test
      * @dataProvider dataFactory
+     * @author Aldrea Malheiros Oliveira Rabelo
      */
     public function shouldCreateMaterial(Material $material) {
 
@@ -35,6 +36,7 @@ class CRUDMaterialTest extends BaseUnitTests
      * @param Material $material
      * @test
      * @dataProvider dataFactory
+     * @author Aldrea Malheiros Oliveira Rabelo
      */
     public function shouldSearchMaterial(Material $material) {
 
@@ -50,6 +52,7 @@ class CRUDMaterialTest extends BaseUnitTests
      * @param Material $material
      * @test
      * @dataProvider dataFactory
+     * @author Aldrea Malheiros Oliveira Rabelo
      */
     public function shouldDestroyMaterial(Material $material) {
 
@@ -69,6 +72,7 @@ class CRUDMaterialTest extends BaseUnitTests
      * @dataProvider dataFactory
      * @expectedException \Exception
      * @expectedExceptionMessage A quantidade não pode ser negativa.
+     * @author Aldrea Malheiros Oliveira Rabelo
      */
     public function shouldCreateMaterialGenerateExceptionNegativeStock(Material $material) {
 

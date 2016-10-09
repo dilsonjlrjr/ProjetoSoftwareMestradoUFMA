@@ -27,6 +27,7 @@ class InfraTest extends BaseUnitTests
 
     /**
      * @test
+     * @author Dilson José Lins Rabelo Junior
      */
     public function shouldInstanceObjectContainerInterface() {
 

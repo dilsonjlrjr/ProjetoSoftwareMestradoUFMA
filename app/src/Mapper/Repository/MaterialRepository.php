@@ -3,6 +3,7 @@
 namespace App\Mapper\Repository;
 
 use App\Mapper\Material;
+use App\Mapper\Validator\MaterialValidator;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -17,9 +18,8 @@ class MaterialRepository extends EntityRepository implements PersistInterface
      */
     public function saveOrUpdate($object)
     {
-        if ($object->getQuantidade() < 0) {
-            throw new \Exception('A quantidade não pode ser negativa.');
-        }
+        $validator = new MaterialValidator();
+        $validator->isValid($object);
 
         $this->_em->persist($object);
         $this->_em->flush();
