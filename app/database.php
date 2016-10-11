@@ -27,6 +27,7 @@ return [
             'port' => '3306',
             'driver' => 'pdo_mysql',
             'charset' => 'utf8',
+            'unix_socket' => '/tmp/mysql.sock'
         ],
         'configuration' => [
             'ProxyDir' =>  __DIR__ . '/../cache/DoctrineORM/Proxy/',
