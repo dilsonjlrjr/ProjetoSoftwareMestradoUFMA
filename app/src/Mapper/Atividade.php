@@ -146,7 +146,7 @@ class Atividade
     /**
      * @return Pessoa
      */
-    public function getPessoa(): Pessoa
+    public function getPessoa()
     {
         return $this->pessoa;
     }
@@ -162,7 +162,7 @@ class Atividade
     /**
      * @return Projeto
      */
-    public function getProjeto(): Projeto
+    public function getProjeto()
     {
         return $this->projeto;
     }
