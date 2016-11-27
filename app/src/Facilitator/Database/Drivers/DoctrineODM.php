@@ -11,9 +11,15 @@ use Doctrine\MongoDB\Connection;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\Configuration;
 
-
+/**
+ * Class DoctrineODM
+ * @package App\Facilitator\Database\Drivers
+ */
 class DoctrineODM
 {
+    /**
+     * @return DocumentManager
+     */
     function __invoke() : DocumentManager
     {
         $appContainer = ContainerFacilitator::getContainer();

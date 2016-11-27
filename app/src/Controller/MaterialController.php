@@ -22,12 +22,22 @@ class MaterialController extends AbstractController
         parent::__construct($ci);
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function indexAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         return $this->view->render($response, 'material/index.twig', []);
 
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return mixed
+     */
     public function saveAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         $material = new Material();
@@ -41,6 +51,11 @@ class MaterialController extends AbstractController
 
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function listTableMaterialAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         $listMaterial = $this->_dm->getRepository(Material::class)->findAll();

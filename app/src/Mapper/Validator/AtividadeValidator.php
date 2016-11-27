@@ -5,6 +5,10 @@ namespace App\Mapper\Validator;
 
 use App\Mapper\Atividade;
 
+/**
+ * Class AtividadeValidator
+ * @package App\Mapper\Validator
+ */
 class AtividadeValidator implements ValidatorInterface
 {
     /**
@@ -21,15 +25,15 @@ class AtividadeValidator implements ValidatorInterface
             throw new \Exception('Data não pode ser retroativa');
         }
 
-        if($object->getPessoa() == null) {
+        if ($object->getPessoa() === null) {
             throw new \Exception('Você precisa ter uma pessoa associada!');
         }
 
-        if($object->getProjeto() == null) {
+        if ($object->getProjeto() === null) {
             throw new \Exception('Você precisa ter um projeto associado!');
         }
 
-        if($object->getDetalhamentoAtividade() == null) {
+        if ($object->getDetalhamentoAtividade() === null) {
             throw new \Exception('Você precisa criar um detalhamento de atividade!');
         }
 

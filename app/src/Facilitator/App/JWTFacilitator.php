@@ -8,7 +8,6 @@ use Namshi\JOSE\SimpleJWS;
 
 class JWTFacilitator
 {
-
     /**
      * Create token with format JWT
      *
@@ -38,6 +37,11 @@ class JWTFacilitator
 
     }
 
+    /**
+     * @param string $token
+     * @param string $secret
+     * @return bool
+     */
     public static function tokenIsExpired(string $token, string $secret) {
 
         $jws = JWS::load($token);

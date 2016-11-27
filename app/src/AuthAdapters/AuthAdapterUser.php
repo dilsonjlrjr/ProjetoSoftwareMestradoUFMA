@@ -9,6 +9,10 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use SlimAuth\AuthAdapterInterface;
 use SlimAuth\AuthResponse;
 
+/**
+ * Class AuthAdapterUser
+ * @package App\AuthAdapters
+ */
 class AuthAdapterUser implements AuthAdapterInterface
 {
     /**
@@ -38,6 +42,9 @@ class AuthAdapterUser implements AuthAdapterInterface
         $this->password = $password;
     }
 
+    /**
+     * @return AuthResponse
+     */
     function authenticate() : AuthResponse
     {
 
@@ -47,7 +54,7 @@ class AuthAdapterUser implements AuthAdapterInterface
         $arrayUser = $this->databaseConnection->getRepository(User::class)
             ->findBy(array('username' => $this->username, 'password' => $this->password));
 
-        if (count($arrayUser) == 0) {
+        if (count($arrayUser) === 0) {
             return new AuthResponse(AuthResponse::AUTHRESPONSE_FAILURE, 'User not found');
         }
 

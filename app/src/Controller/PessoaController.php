@@ -14,6 +14,10 @@ use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
+/**
+ * Class PessoaController
+ * @package App\Controller
+ */
 class PessoaController extends AbstractController
 {
     /**

@@ -7,8 +7,15 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Doctrine\ORM\Tools\Setup;
 
+/**
+ * Class DoctrineORM
+ * @package App\Facilitator\Database\Drivers
+ */
 class DoctrineORM
 {
+    /**
+     * @return EntityManager
+     */
     function __invoke() : EntityManager
     {
         $appContainer = ContainerFacilitator::getContainer();

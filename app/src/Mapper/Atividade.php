@@ -9,7 +9,8 @@ use Doctrine\ORM\PersistentCollection;
 /**
  * Atividade
  *
- * @ORM\Table(name="Atividade", indexes={@ORM\Index(name="fk_Atividade_Projeto_idx", columns={"projeto_FK_idProjeto"}), @ORM\Index(name="fk_Atividade_Ator1_idx", columns={"ator_FK_idAtor"})})
+ * @ORM\Table(name="Atividade", indexes={@ORM\Index(name="fk_Atividade_Projeto_idx",
+ *     columns={"projeto_FK_idProjeto"}), @ORM\Index(name="fk_Atividade_Ator1_idx", columns={"ator_FK_idAtor"})})
  * @ORM\Entity(repositoryClass="App\Mapper\Repository\AtividadeRepository")
  */
 class Atividade

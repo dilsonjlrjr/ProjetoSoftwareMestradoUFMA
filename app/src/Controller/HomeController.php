@@ -12,6 +12,10 @@ use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
+/**
+ * Class HomeController
+ * @package App\Controller
+ */
 class HomeController extends AbstractController
 {
     /**
@@ -23,6 +27,11 @@ class HomeController extends AbstractController
         parent::__construct($ci);
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function indexAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         return $this->view->render($response, 'home/index.twig', []);

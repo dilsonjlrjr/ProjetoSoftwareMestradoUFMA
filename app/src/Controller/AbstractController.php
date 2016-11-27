@@ -12,6 +12,10 @@ use Interop\Container\ContainerInterface;
 use RKA\Session;
 use Slim\Views\Twig;
 
+/**
+ * Class AbstractController
+ * @package App\Controller
+ */
 abstract class AbstractController
 {
     /**

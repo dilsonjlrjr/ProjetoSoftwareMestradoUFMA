@@ -6,6 +6,7 @@ use App\Mapper\Material;
 
 /**
  * Class MaterialValidator
+ * @package App\Mapper\Validator
  */
 class MaterialValidator implements ValidatorInterface
 {

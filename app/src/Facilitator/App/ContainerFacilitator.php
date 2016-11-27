@@ -17,7 +17,7 @@ class ContainerFacilitator
      * @return \Interop\Container\ContainerInterface|Container
      */
     public static function getContainer() {
-        if (self::$application == null) {
+        if (self::$application === null) {
             return new Container();
         }
         return self::$application->getContainer();

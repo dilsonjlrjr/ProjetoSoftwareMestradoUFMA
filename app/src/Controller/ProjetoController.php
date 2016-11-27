@@ -15,6 +15,10 @@ use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
+/**
+ * Class ProjetoController
+ * @package App\Controller
+ */
 class ProjetoController extends AbstractController
 {
     /**
@@ -26,12 +30,22 @@ class ProjetoController extends AbstractController
         parent::__construct($ci);
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function indexAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         return $this->view->render($response, 'projeto/index.twig', []);
 
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return mixed
+     */
     public function saveAction(ServerRequestInterface $request, ResponseInterface $response) {
 
 
@@ -45,6 +59,11 @@ class ProjetoController extends AbstractController
 
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function listTableProjetoAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         $listProject = $this->_dm->getRepository(Projeto::class)->findAll();

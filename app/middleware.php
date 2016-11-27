@@ -6,6 +6,3 @@
 // -----------------------------------------------------------------------------
 // Middleware Session
 // -----------------------------------------------------------------------------
-$settingsSession = $app->getContainer()->get('settings');
-$settingsSession = $settingsSession['session'] ?: [];
-$app->add(new \RKA\SessionMiddleware($settingsSession));

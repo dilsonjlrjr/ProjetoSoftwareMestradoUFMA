@@ -25,12 +25,19 @@ class MaterialRepository extends EntityRepository implements PersistInterface
         $this->_em->flush();
     }
 
+    /**
+     * @param $object
+     */
     public function delete($object)
     {
         $this->_em->remove($object);
         $this->_em->flush();
     }
 
+    /**
+     * @param $descriptionFind
+     * @return array
+     */
     public function findForDescription($descriptionFind)
     {
         return

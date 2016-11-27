@@ -11,6 +11,10 @@ use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
+/**
+ * Class AtividadeController
+ * @package App\Controller
+ */
 class AtividadeController extends AbstractController
 {
     /**
@@ -22,6 +26,11 @@ class AtividadeController extends AbstractController
         parent::__construct($ci);
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function indexAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         $listProjetos = $this->_dm->getRepository(Projeto::class)->findAll();
@@ -31,6 +40,11 @@ class AtividadeController extends AbstractController
 
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function listTableProjetoAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         $listAtividade = $this->_dm->getRepository(Atividade::class)->findBy([ 'projeto' => $request->getParam('idproject') ]);
@@ -39,6 +53,11 @@ class AtividadeController extends AbstractController
 
     }
 
+    /**
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function listMaterialAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         $listMaterial = $this->_dm->getRepository(Material::class)->getMaterialInStock();

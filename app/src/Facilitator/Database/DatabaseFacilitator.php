@@ -39,16 +39,19 @@ class DatabaseFacilitator
      * @throws \Exception
      */
     private static function validateContainerFileDatabase(ContainerInterface $container) {
-        if (! $container->has('database-settings')) {
+        if (!$container->has('database-settings')) {
             throw new \Exception('File database configuration unspecified.');
         }
 
         $databaseSettings = $container->get('database-settings');
-        if ((!$databaseSettings->has('driver')) || (!$databaseSettings->has($databaseSettings->get('driver'))) ) {
+        if ((!$databaseSettings->has('driver')) || (!$databaseSettings->has($databaseSettings->get('driver')))) {
             throw new \Exception('The driver the file database settings unspecified.');
         }
     }
 
+    /**
+     * Destroy Connection
+     */
     public static function destroyConnection() {
         self::$connection = null;
     }
