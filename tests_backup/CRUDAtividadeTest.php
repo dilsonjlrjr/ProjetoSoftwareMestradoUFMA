@@ -1,6 +1,12 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: higo
+ * Date: 04/10/16
+ * Time: 02:56
+ */
 
-namespace Tests\Atividade;
+namespace Tests;
 
 use App\Mapper\Atividade;
 use App\Mapper\DetalhamentoAtividade;
@@ -8,9 +14,8 @@ use App\Mapper\Material;
 use App\Mapper\Pessoa;
 use App\Mapper\Projeto;
 use Doctrine\ORM\EntityManager;
-use Tests\BaseUnitTests;
 
-class CreateAtividadeTest extends BaseUnitTests   {
+class CRUDAtividadeTest extends BaseUnitTests  {
 
     /**
      * @var EntityManager
@@ -24,57 +29,10 @@ class CreateAtividadeTest extends BaseUnitTests   {
     }
 
     /**
-     * @test
-     * @dataProvider dataFactory
-     * @param Atividade $atividade
-     * @author Dilson Rabelo
-     * @expectedException \Exception
-     * @expectedExceptionMessage Data não pode ser retroativa
-     */
-    public function shouldValidateErrorDateCreateAtividade(Atividade $atividade) {
-
-        $atividade->setDataconclusao(new \DateTime('yesterday'));
-        $this->entity->getRepository(Atividade::class)->saveOrUpdate($atividade);
-
-    }
-
-    /**
-     * @test
-     * @dataProvider dataFactory
-     * @param Atividade $atividade
-     * @author Dilson Rabelo
-     * @expectedException \Exception
-     * @expectedExceptionMessage Você precisa ter uma pessoa associada!
-     */
-    public function shouldValidadeWithoutPessoa(Atividade $atividade) {
-
-        $this->entity->getRepository(Atividade::class)->saveOrUpdate($atividade);
-    }
-
-    /**
-     * @test
-     * @dataProvider dataFactory
-     * @param Atividade $atividade
-     * @author Dilson Rabelo
-     * @expectedException \Exception
-     * @expectedExceptionMessage Você precisa ter um projeto associado!
-     */
-    public function shouldValidadeWithoutProject(Atividade $atividade) {
-
-        $pessoa = new Pessoa();
-        $pessoa->setNome('ExamplePessoa');
-        $pessoa->setProfissao('Example Profissao');
-        $atividade->setPessoa($pessoa);
-
-        $this->entity->getRepository(Atividade::class)->saveOrUpdate($atividade);
-    }
-
-    /**
      * @param Atividade $atividade
      * @test
      * @dataProvider dataFactory
      * @author Higo Lobato Sampaio
-     * @return Atividade
      */
     public function shouldCreateAtividade(Atividade $atividade) {
 
@@ -113,16 +71,13 @@ class CreateAtividadeTest extends BaseUnitTests   {
         $this->entity->getRepository(Atividade::class)->saveOrUpdate($atividade);
         $this->assertTrue(is_numeric($atividade->getId()));
 
-        return $atividade;
-
     }
 
     /**
      * @param Atividade $atividade
      * @test
-     * @author Higo Lobato Sampaio
      * @dataProvider dataFactory
-     * @return Atividade
+     * @author Higo Lobato Sampaio
      */
     public function shouldSearchAtividade(Atividade $atividade) {
 
@@ -131,6 +86,7 @@ class CreateAtividadeTest extends BaseUnitTests   {
         $this->assertEquals($arrayAtividade[0]->getNome(), $atividade->getNome());
         $this->assertEquals($arrayAtividade[0]->getDataconclusao(), $atividade->getDataconclusao());
         $this->assertEquals($arrayAtividade[0]->isStatus(), $atividade->isStatus());
+
     }
 
     /**

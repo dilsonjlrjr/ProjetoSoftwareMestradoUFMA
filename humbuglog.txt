@@ -1,0 +1,99 @@
+Humbug running test suite to generate logs and code coverage data...
+Humbug has completed the initial test run successfully.
+Tests: 17 Line Coverage: 82.12%
+Humbug is analysing source files...
+Mutation Testing is commencing on 6 files...
+(.: killed, M: escaped, S: uncovered, E: fatal error, T: timed out)
+MM.........................M..S....M
+36 mutations were generated:
+      31 mutants were killed
+       1 mutants were not covered by tests
+       4 covered mutants were not detected
+       0 fatal errors were encountered
+       0 time outs were encountered
+
+Metrics:
+    Mutation Score Indicator (MSI): 86%
+    Mutation Code Coverage: 97%
+    Covered Code MSI: 89%
+
+Remember that some mutants will inevitably be harmless (i.e. false positives).
+Time: 6.43 minutes Memory: 8.00MB
+Humbug results are being logged as TEXT to: humbuglog.txt
+
+------
+Uncovered
+------
+
+
+1) Mutator \Humbug\Mutator\Number\IntegerValue on \Tests\CRUDMaterialTest::dataFactory() in /Users/dilsonrabelo/www/GitHub/mestrado/projetosoftware/tests/CRUDMaterialTest.php on line 89
+
+
+------
+Escapes
+------
+
+
+1) \Humbug\Mutator\Number\IntegerValue
+Diff on \Tests\Atividade\CreateAtividadeTest::shouldCreateAtividade() in /Users/dilsonrabelo/www/GitHub/mestrado/projetosoftware/tests/Atividade/CreateAtividadeTest.php:
+--- Original
++++ New
+@@ @@
+         $material->setDescricao('ExampleMaterial');
+-        $material->setQuantidade(500);
++        $material->setQuantidade(501);
+ 
+         $this->entity->getRepository(Material::class)->saveOrUpdate($material);
+ 
+         //Persist Actor
+         $pessoa = new Pessoa();
+         $pessoa->setNome('ExamplePessoa');
+
+
+2) \Humbug\Mutator\Number\IntegerValue
+Diff on \Tests\Atividade\CreateAtividadeTest::shouldCreateAtividade() in /Users/dilsonrabelo/www/GitHub/mestrado/projetosoftware/tests/Atividade/CreateAtividadeTest.php:
+--- Original
++++ New
+@@ @@
+ 
+-        $detalheAtividade->setQuantidade(10);
++        $detalheAtividade->setQuantidade(11);
+         $detalheAtividade->setMaterial($material);
+ 
+         $atividade->setProjeto($projeto);
+         $atividade->setDetalhamentoAtividade($detalheAtividade);
+         $atividade->setPessoa($pessoa);
+ 
+
+
+3) \Humbug\Mutator\Number\IntegerValue
+Diff on \Tests\CRUDMaterialTest::shouldDestroyMaterial() in /Users/dilsonrabelo/www/GitHub/mestrado/projetosoftware/tests/CRUDMaterialTest.php:
+--- Original
++++ New
+@@ @@
+         $arrayMaterial = $this->em->getRepository(Material::class)->findForDescription($material->getDescricao());
+-        $this->assertCount(0, $arrayMaterial);
++        $this->assertCount(1, $arrayMaterial);
+ 
+     }
+ 
+     /**
+      * @param Material $material
+      * @test
+
+
+4) \Humbug\Mutator\Number\IntegerValue
+Diff on \Tests\CRUDPessoasTest::shouldDestroyPessoa() in /Users/dilsonrabelo/www/GitHub/mestrado/projetosoftware/tests/CRUDPessoasTest.php:
+--- Original
++++ New
+@@ @@
+         $arrayPessoa = $this->em->getRepository(Pessoa::class)->findForName($pessoa->getNome());
+-        $this->assertCount(0, $arrayPessoa);
++        $this->assertCount(1, $arrayPessoa);
+ 
+     }
+ 
+     public function dataFactory() {
+         $pessoa = new Pessoa();
+         $pessoa->setNome('Dilson');
+
