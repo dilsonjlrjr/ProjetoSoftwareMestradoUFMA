@@ -29,15 +29,27 @@ class PessoaController extends AbstractController
         parent::__construct($ci);
     }
 
+    /**
+     * Pagina render index de pessoa
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function indexAction(ServerRequestInterface $request, ResponseInterface $response) {
 
         return $this->view->render($response, 'pessoa/index.twig', []);
 
     }
 
+    /**
+     * Persiste pessoa e encaminha json como retorno
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return mixed
+     */
     public function saveAction(ServerRequestInterface $request, ResponseInterface $response) {
 
-
+        //Persistindo Pessoa
         $pessoa = new Pessoa();
         $pessoa->setNome($request->getParam('name'));
         $pessoa->setProfissao($request->getParam('profissao'));
@@ -49,8 +61,15 @@ class PessoaController extends AbstractController
 
     }
 
+    /**
+     * Lista tabela de dados em ajax
+     * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
+     * @return ResponseInterface
+     */
     public function listTablePessoaAction(ServerRequestInterface $request, ResponseInterface $response) {
 
+        //lista todas as pessoas
         $listPessoas = $this->_dm->getRepository(Pessoa::class)->findAll();
 
         return $this->view->render($response, 'pessoa/listTablePessoa.twig', [ 'listPessoas' => $listPessoas ]);

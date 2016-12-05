@@ -23,6 +23,7 @@ class MaterialController extends AbstractController
     }
 
     /**
+     * Pagina index
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface
@@ -34,6 +35,7 @@ class MaterialController extends AbstractController
     }
 
     /**
+     * Persiste Material
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return mixed
@@ -52,6 +54,7 @@ class MaterialController extends AbstractController
     }
 
     /**
+     * Lista material
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface

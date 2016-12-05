@@ -28,6 +28,7 @@ class HomeController extends AbstractController
     }
 
     /**
+     * Pagina index
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface

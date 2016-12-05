@@ -31,6 +31,7 @@ class ProjetoController extends AbstractController
     }
 
     /**
+     * Pagina index
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface
@@ -42,13 +43,14 @@ class ProjetoController extends AbstractController
     }
 
     /**
+     * Persiste Projeto
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return mixed
      */
     public function saveAction(ServerRequestInterface $request, ResponseInterface $response) {
 
-
+        //Cria objeto projeto
         $projeto = new Projeto();
         $projeto->setNome($request->getParam('name'));
 
@@ -60,12 +62,14 @@ class ProjetoController extends AbstractController
     }
 
     /**
+     * Lista projeto ajax
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface
      */
     public function listTableProjetoAction(ServerRequestInterface $request, ResponseInterface $response) {
 
+        //lista todos os projetos
         $listProject = $this->_dm->getRepository(Projeto::class)->findAll();
 
         return $this->view->render($response, 'projeto/listTableProjeto.twig', [ 'listProject' => $listProject ]);

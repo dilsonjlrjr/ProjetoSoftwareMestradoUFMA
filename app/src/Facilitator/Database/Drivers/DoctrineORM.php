@@ -14,6 +14,7 @@ use Doctrine\ORM\Tools\Setup;
 class DoctrineORM
 {
     /**
+     * O processo de conexao pode ser vizualizado no site do doctrine
      * @return EntityManager
      */
     function __invoke() : EntityManager
@@ -22,6 +23,7 @@ class DoctrineORM
         $databaseSettings = $appContainer->get('database-settings');
         $settings = $databaseSettings->get($databaseSettings->get('driver'));
 
+        //Os objetos de conexao vem através do container da aplicação.
         $user     = $settings['connection']['user'];
         $password = $settings['connection']['password'];
         $dbName   = $settings['connection']['dbname'];

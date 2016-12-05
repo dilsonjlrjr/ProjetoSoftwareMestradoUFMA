@@ -11,6 +11,7 @@ class DatabaseFacilitator
     private static $connection;
 
     /**
+     * Cria o objeto de conexao
      * Return connection active
      * @return mixed $connection
      */
@@ -35,10 +36,12 @@ class DatabaseFacilitator
     }
 
     /**
+     * Valida o objeto de conexao
      * @param ContainerInterface $container
      * @throws \Exception
      */
     private static function validateContainerFileDatabase(ContainerInterface $container) {
+
         if (!$container->has('database-settings')) {
             throw new \Exception('File database configuration unspecified.');
         }

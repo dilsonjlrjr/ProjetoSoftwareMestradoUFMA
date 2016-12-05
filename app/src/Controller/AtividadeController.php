@@ -27,12 +27,14 @@ class AtividadeController extends AbstractController
     }
 
     /**
+     * Pagina index
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface
      */
     public function indexAction(ServerRequestInterface $request, ResponseInterface $response) {
 
+        //Obtem as todos os projetos e pessoas
         $listProjetos = $this->_dm->getRepository(Projeto::class)->findAll();
         $listPessoa = $this->_dm->getRepository(Pessoa::class)->findAll();
 
@@ -41,12 +43,14 @@ class AtividadeController extends AbstractController
     }
 
     /**
+     * Lista dados em ajax
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface
      */
     public function listTableProjetoAction(ServerRequestInterface $request, ResponseInterface $response) {
 
+        //Localiza um dado projeto
         $listAtividade = $this->_dm->getRepository(Atividade::class)->findBy([ 'projeto' => $request->getParam('idproject') ]);
 
         return $this->view->render($response, 'atividades/listTableAtividade.twig', [ 'listAtividade' => $listAtividade ]);
@@ -54,12 +58,14 @@ class AtividadeController extends AbstractController
     }
 
     /**
+     * lista de materiais
      * @param ServerRequestInterface $request
      * @param ResponseInterface $response
      * @return ResponseInterface
      */
     public function listMaterialAction(ServerRequestInterface $request, ResponseInterface $response) {
 
+        //Busca o material em estoque
         $listMaterial = $this->_dm->getRepository(Material::class)->getMaterialInStock();
 
         return $this->view->render($response, 'atividades/listMaterial.twig', [ 'listMaterial' => $listMaterial ]);

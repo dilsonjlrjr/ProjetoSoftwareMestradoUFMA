@@ -18,6 +18,7 @@ class MaterialValidator implements ValidatorInterface
      */
     function isValid($object)
     {
+        //A quantidade nao pode ser menor que 0 (zero)
         if ($object->getQuantidade() < 0) {
             throw new \Exception('A quantidade não pode ser negativa.');
         }
